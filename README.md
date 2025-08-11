@@ -14,17 +14,17 @@ You can use it from:
 ### Demo
 
 <p align="center">
-  <img src="assets/sql-agent-question1.png" alt="Web UI with SQL panel" width="500">
-  <br><em>Response</em>
-</p>
-
-<p align="center">
-  <img src="assets/sql-agent-question3.png" alt="Web UI with SQL panel" width="500">
+  <img src="assets/question_1.png" alt="Web UI with SQL panel" width="500">
   <br><em>Web UI: generated SQL + DB response panel</em>
 </p>
 
 <p align="center">
-  <img src="assets/question2.png" alt="Web UI with SQL panel" width="500">
+  <img src="assets/question_2.png" alt="Web UI with SQL panel" width="500">
+  <br><em>Web UI: generated SQL + DB response panel</em>
+</p>
+
+<p align="center">
+  <img src="assets/question_3.png" alt="Web UI with SQL panel" width="500">
   <br><em>Web UI: generated SQL + DB response panel</em>
 </p>
 

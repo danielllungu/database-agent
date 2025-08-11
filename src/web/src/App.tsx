@@ -190,7 +190,7 @@ async function ask() {
               ) : (
                 <pre
                   ref={sqlPreRef}
-                  className="scrollbar drag-scroll overflow-x-scroll overflow-y-auto whitespace-pre text-sm max-h-[60vh] min-h-40"
+                  className="scrollbar drag-scroll overflow-x-scroll overflow-y-auto whitespace-pre font-mono text-[13px] leading-6 max-h-[60vh] min-h-40"
                 >
                   {lastSQL || "(no SQL generated)"}
                 </pre>
@@ -205,7 +205,7 @@ async function ask() {
                   {!!lastRows.length && (
                     <pre
                       ref={jsonPreRef}
-                      className="scrollbar drag-scroll overflow-x-scroll overflow-y-auto whitespace-pre text-sm max-h-[60vh]"
+                      className="scrollbar drag-scroll overflow-x-scroll overflow-y-auto whitespace-pre font-mono text-[13px] leading-6 max-h-[60vh]"
                     >
                       {JSON.stringify(lastRows.slice(0, 100), null, 2)}
                     </pre>

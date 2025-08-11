@@ -2,8 +2,6 @@ from datetime import datetime
 import pytz
 import json
 import re
-from typing import Iterable, Optional
-from agent.types import SchemaSnapshot, Table
 
 
 def _fmt_table_line(t, include_samples, preview_rows):
@@ -83,3 +81,4 @@ def extract_json(text):
             pass
 
     raise ValueError("Could not extract valid JSON from LLM output.")
+

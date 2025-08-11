@@ -4,13 +4,27 @@ from agent.db.execute import run_select, explain
 from agent.llm.client import make_llm
 from agent.types import SchemaSnapshot, ValidateFixOutput
 from agent.utils.utility import extract_json, render_schema_markdown
+import sqlparse
+
+
+def _pretty_sql(sql):
+    try:
+        return sqlparse.format(
+            sql,
+            reindent=True,
+            keyword_case="upper",
+            use_space_around_operators=True,
+            comma_first=False,
+        )
+    except Exception:
+        return sql
 
 
 def validate_fix_node(sql_draft: str, schema: SchemaSnapshot, max_attempts: int = 3) -> ValidateFixOutput:
     try:
         _ = explain(sql_draft)
         _ = run_select(sql_draft, limit_default=3)
-        return ValidateFixOutput(validated_sql=sql_draft, attempts=1, last_error=None)
+        return ValidateFixOutput(validated_sql=_pretty_sql(sql_draft), attempts=1, last_error=None)
     except Exception as e:
         last_err = str(e)
 
@@ -33,7 +47,7 @@ def validate_fix_node(sql_draft: str, schema: SchemaSnapshot, max_attempts: int 
         try:
             _ = explain(fixed)
             _ = run_select(fixed, limit_default=3)
-            return ValidateFixOutput(validated_sql=fixed, attempts=attempts, last_error=None)
+            return ValidateFixOutput(validated_sql=_pretty_sql(fixed), attempts=attempts, last_error=None)
         except Exception as e:
             last_err = str(e)
             candidate = fixed
