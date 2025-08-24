@@ -7,7 +7,7 @@ You can use it from:
  - **CLI**: command line interactive mode
  - **local web UI**: chatbot user interface
 
-> ⚠️ The agent executes **SELECT-only** queries in a **read-only** transaction and auto-LIMITs results for safety. No data is mutated.
+>  The agent executes **SELECT-only** queries in a **read-only** transaction and auto-LIMITs results for safety. No data is mutated.
 
 ---
 
